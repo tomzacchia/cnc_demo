@@ -1,0 +1,46 @@
+@import '~src/sass/global';
+@import '~src/sass/mixins';
+
+.fa-times{
+    color: $brand-green;
+}
+
+.product-info-img{
+    max-width: 100%;
+    height: auto;
+}
+
+.product-title{
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+
+.main-info{
+    p{
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#deatiled-price{
+    padding: 0;
+    margin: 0;
+    font-size: .75rem;
+    color: gray;
+}
+
+#price{
+    font-size: 1.5rem;
+}
+
+.add-item{
+    display: flex;
+    flex-direction: row;
+    
+    button{
+        background-color: $brand-green;
+        border: none;
+        margin-left: 1rem;
+    }
+}

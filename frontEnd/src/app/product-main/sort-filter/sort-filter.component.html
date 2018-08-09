@@ -1,0 +1,57 @@
+<div class="filter">
+    <ul>
+        <hr>
+        <li class="sort-toggler" style="padding-bottom: .5rem"
+            appAnimateDirective
+            [className]=" 'animate_chevron' "
+            (click) = "filterOptionsDisplay()">
+            <div style="width: 20%">
+            </div> 
+            <div style="width: 60%; text-align: center">
+                Filter &amp; Sort by
+            </div>
+            <div style="width: 20%; text-align: right">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+        </li>
+        <hr>
+        <div class="sort-container" *ngIf="displayFlag">
+            <div appAnimateDirective
+                [className]=" 'animate_chevron' ">
+                    <li> 
+                        <span class="filter-text">Product Type</span> <i class="fa fa-chevron-right"></i>
+                    </li>
+                    <div class="drop-down-child">
+                        <li  data-category="'productType'" appFilterSelected>
+                                Citrus 
+                        </li>
+                        <li appFilterSelected> Berries </li>
+                    </div>
+            </div>
+            <hr>
+            <div appAnimateDirective
+                [className]=" 'animate_chevron' ">
+                    <li> 
+                            Dietery Needs <i class="fa fa-chevron-right"></i>
+                    </li>
+                    <div class="drop-down-child">
+                            <li> Lactose Free </li>
+                            <li> Organic </li>
+                    </div>
+            </div>
+            <hr>
+            <div appAnimateDirective
+                [className]=" 'animate_chevron' ">
+                <li> 
+                        Sort by <i class="fa fa-chevron-right"></i>
+                </li>
+                <div class="drop-down-child sort-options">
+                        <li> Default </li>
+                        <li> Price - Low to High </li>
+                        <li> Price - High to Low  </li>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </ul>    
+</div>

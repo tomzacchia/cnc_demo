@@ -1,0 +1,71 @@
+@import '~src/sass/global';
+@import '~src/sass/mixins';
+@import '~src/sass/variables';
+
+.filter{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    padding-left: 0;
+
+    ul{
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        position: relative;
+    }
+    
+    li{
+        padding: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        cursor: pointer;
+        font-weight: 100;
+    }
+    i{
+        color: $brand-green;
+    }
+}
+
+.sort-container{
+    position: absolute;
+    width: inherit;
+    // height: 25rem;
+
+    background-color: white;
+    z-index: 10;
+}
+
+// Sort Options  
+.sort-options{
+    background-color: $brand-light-green;
+}
+
+// Animations
+.drop-down-child{
+    padding: 0 2rem;
+    display: none;
+
+    li{
+        padding: .5rem 0rem;
+    }
+    li:active{
+        color: $brand-green;
+    }
+}
+.animate_chevron {
+    i{
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);  
+    }
+
+    .drop-down-child{
+        display: inherit;
+    }
+}
+
+// filter selection class toggling
+.drop-down-child .active{
+    color: $primary;
+}

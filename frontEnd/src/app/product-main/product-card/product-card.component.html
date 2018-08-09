@@ -1,0 +1,40 @@
+<div class="product-card">
+    <div class="product-container">
+
+        <div class="image-container">
+            <img 
+                class="img-responsive image-sizing" 
+                src="{{item.itemImg}}" (click)="openModal()" 
+                style="cursor:pointer">
+        </div>
+        
+        <span id="vertical-spacer"></span>
+
+        <div class="product-card-info">
+            <div>
+                <p> {{item.itemName}} </p>
+                <p id="product-card-specific-cost"> {{item.specificCost}}$ /lbs </p>
+            </div>
+
+
+            <div>
+                <p id="product-card-cost"> {{item.itemCost}}</p>
+                <div class="product-card-button">
+                    <button class="btn btn-success"
+                            *ngIf="!addButtonDisplay"
+                            (click)=itemAdded()> 
+                        Add to cart
+                    </button>  
+    
+                    <div *ngIf="addButtonDisplay">
+                        <app-add-remove-button [item] ="item">
+                        </app-add-remove-button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+    </div>
+</div>
+
+

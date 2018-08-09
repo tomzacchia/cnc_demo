@@ -1,0 +1,47 @@
+<div class="container-fluid payment">
+   <div class="row">
+       <p style=" padding-left: 1rem; 
+                  padding-top: 1rem;
+                  text-align: center; 
+                  font-size: 1.2rem; "> 
+                    Check Out 
+        </p>
+   </div>
+   <div class="row">
+       <div class="col-6" style="text-right: left">
+           <ul>
+               <li> Subtotal $ </li>
+               <li> Taxes %    </li>
+               <li > 
+                   <span class="checkout-highlighted-text">Total $</span> 
+               </li>
+           </ul>
+       </div>
+       <div class="col-6" style="padding-left: 0; text-align: left">
+           <ul style="padding-left: 1rem;">
+               <li> 10 </li>
+               <li> 15 </li>
+                <li > 
+                   <span class="checkout-highlighted-text">11.50</span> 
+               </li>
+           </ul>
+       </div>
+   </div>
+   <div class="row">
+       <div class="col-12">
+          <div class="payment-card-container" (click)="cardClicked($event)" #visa highlightDirective>
+               <i class="fa fa-cc-visa"> </i> 
+               <p> Visa </p>
+          </div>
+          <div class="payment-card-container" #masterCard highlightDirective>
+               <i class="fa fa-cc-mastercard"> </i> 
+               <p> Mastercard </p>
+          </div>
+       </div>
+   </div>
+    <div class="row">
+        <div class="col-12" style="padding-top: 1rem;">
+            <button class="btn btn-success payment-button" [disabled]="!cardSelected"> Pay Now </button>
+        </div>
+    </div>
+</div>

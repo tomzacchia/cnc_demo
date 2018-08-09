@@ -1,0 +1,23 @@
+<div class="containe-fluid shop-parent-container" id="shopContainer">
+  <p style="font-size:1.75rem; margin-bottom: 1rem;"> Store Locator </p>
+  <p> Search by Postal Code, City and/or Province</p>
+
+  <div class="form-container">
+    <form #searchForm="ngForm" (ngSubmit)="onSearchSubmit(searchForm.value)">
+        <input type="text" id="search" name="search" placeholder="e.g. Montreal, Quebec" required ngModel>
+
+        <button type="submit" class="btn">
+          <i class="fa fa-search"></i>
+        </button>
+    </form>
+  </div>
+
+  <hr>
+
+  <app-store-card
+    *ngFor="let shopsArray of shopsArray"
+    [shopInfo] = shopsArray> 
+  </app-store-card>
+
+
+</div>

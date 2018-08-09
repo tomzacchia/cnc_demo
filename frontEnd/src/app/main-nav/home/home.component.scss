@@ -1,0 +1,108 @@
+// Core variables and mixins
+@import "~src/sass/variables";
+@import "~src/sass/mixins";
+// Global CSS
+@import "global.scss";
+
+// Masthead
+header.masthead {
+    padding: 0;
+    position: relative;
+    width: 100%;
+    background-color: $gray-800;
+    //background: url('../img/cover1.jpg') no-repeat center center;
+    @include background-cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background-position: 60% 0%;
+    @include tablet-portrait{
+        background-position: 0% 0%;
+    }
+    .overlay {
+      position: absolute;
+      background-color: $gray-900;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0.3;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    @media (min-width: 768px) {
+      padding-top: 12rem;
+      padding-bottom: 12rem;
+      h1 {
+        font-size: 4rem;
+      }
+    }
+  }
+  .masthead a{
+      padding: 1rem 2rem;
+      color:white;
+      border: solid  white;
+      border-radius: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+  }
+  .masthead .text-banner{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .masthead #small-text{
+      font-size: 2rem;
+  }
+  
+  // Intro
+  .intro {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    background-color: $primary-light;
+
+      h1{
+          width:100%;
+          font-weight: 200;
+      }
+      h2{
+          width: 100%;
+          font-weight: 200;
+      }
+      .intro-white-text{
+          font-weight: 400;
+      }
+  }
+  
+  //Showcase
+  .showcase {
+    .showcase-text {
+      padding: 3rem;
+
+      h2{
+        color: $primary;
+      }
+    }
+    .showcase-img {
+      min-height: 20rem;
+      background-size: cover;
+      @include phone{
+          background-position: 15% 0%;
+      }
+    }
+    .showcase-img:first-child{
+        background-position: 25% 0%;
+
+        @include desktop{
+            background-position: 0% 0%;
+        }
+    }
+    #showcase__third-image{
+      background-position: inherit;
+    }
+    @media (min-width: 768px) {
+      .showcase-text {
+        padding: 7rem;
+      }
+    }
+  }

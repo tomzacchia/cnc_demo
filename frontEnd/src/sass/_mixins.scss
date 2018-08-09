@@ -1,0 +1,31 @@
+// Mixins
+// Background Cover Mixin
+@mixin background-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+// Font Mixins
+@mixin body-font {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+//Media Queries mixins
+//Small devices
+@mixin phone {
+  @media (max-width: 575px) { @content; }
+}
+@mixin tablet-portrait {
+  @media (min-width: 576px) { @content; }
+}
+@mixin tablet-landscape {
+  @media (min-width: 768px) { @content; }
+}
+@mixin desktop {
+  @media (min-width: 992px) { @content; }
+}
+@mixin desktop-big {
+  @media (min-width: 1200px) { @content; }
+}

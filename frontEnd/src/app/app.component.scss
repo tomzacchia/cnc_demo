@@ -1,0 +1,11 @@
+@import '~src/sass/variables';
+@import '~src/sass/global';
+
+//@import '~sass/mixins';
+
+.main-body-content {
+    margin-top:56px;
+    @include tablet-landscape{
+        margin-top: 64px;
+    }
+}

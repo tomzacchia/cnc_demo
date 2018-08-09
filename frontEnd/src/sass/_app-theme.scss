@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+// mixin that provides base styling
+@include mat-core();
+
+
+$theme-primary: mat-palette($mat-green);
+$theme-accent: mat-palette($mat-pink, 500, 800, 200);
+
+// 3rd argument (warning, is optional)
+$app-theme: mat-light-theme($theme-primary,$theme-accent);
+
+@include angular-material-theme($app-theme);

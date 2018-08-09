@@ -1,0 +1,76 @@
+
+<div class="container-fluid store-card-container" style="padding:0;">
+
+  <div class="image-container ">
+      <div>
+          <img src="{{shopInfo.image}}" style="width: 10rem; height: auto">
+      </div>
+  </div>
+
+  <div class="details-container ">
+    <div class="store-name d-flex justify-content-between">
+        <p class="highlighted-text"> {{shopInfo.name}} </p>
+        <p *ngIf="false"> 2 km</p>
+    </div>
+    <div class="store-info">
+        <p id="first-info"> Open Today From 10:00am - 8:30pm</p>
+        <p style="width: 15rem"> 9430 Taschereau Blvd, Brossard, QC J4X 2W2 </p>
+        <p class="highlighted-text">{{shopInfo.phoneNumber}}</p>
+    </div>
+    <div class="footer highlighted-text">
+        <p *ngIf="false"> Store Flyer </p>
+        <!-- <p id="store-detail" (click)="storeDetailsState()"> Store Details </p> -->
+        <app-blank-modal [modalContent]="storeHours">
+          <p id="store-detail"> Store Hours </p>
+        </app-blank-modal>
+
+        <p> Enter Store </p>
+    </div>
+  </div>
+
+</div>
+
+<hr style="margin: .5rem 0;">
+
+<ng-template #storeHours let-d="dismiss">
+    <div class="container-fluid additional-info" *ngIf="storeHours">
+
+        <div class="additional-info-header"> 
+            <p> Store Hours </p>
+            <i class="fa fa-times" (click)="d('Cross click')"></i>
+        </div>
+      
+        <ul class="additional-info-list">
+          <li> 
+            <p class="operating-date">Monday </p> 
+            <p class="operating-hours"> {{shopInfo.hours.mon}} </p>
+          </li>
+          <li> 
+            <p class="operating-date">Tuesday </p> 
+            <p class="operating-hours"> 9:00am - 6:00pm </p>
+          </li>
+          <li> 
+            <p class="operating-date">Wednesday </p> 
+            <p class="operating-hours"> 9:00am - 6:00pm </p>
+          </li>
+          <li> 
+            <p class="operating-date">Thursday </p> 
+            <p class="operating-hours"> 9:00am - 6:00pm </p>
+          </li>
+          <li> 
+            <p class="operating-date">Friday </p> 
+            <p class="operating-hours"> 9:00am - 6:00pm </p>
+          </li>
+          <li> 
+            <p class="operating-date">Saturday </p> 
+            <p class="operating-hours"> 9:00am - 6:00pm </p>
+          </li>
+          <li> 
+            <p class="operating-date">Sunday </p> 
+            <p class="operating-hours"> 9:00am - 6:00pm </p>
+          </li>
+        </ul>
+
+      </div>
+</ng-template>
+

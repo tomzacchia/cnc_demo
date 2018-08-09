@@ -1,0 +1,51 @@
+@import '~src/sass/global';
+@import '~src/sass/mixins';
+
+.payment{
+    height: 25rem;
+    max-height: 23rem;
+    width: 100%;
+    @include tablet-landscape{
+        margin-left: 1rem;
+        margin-top: .5rem;
+        max-width: 21rem;
+        position: fixed;
+        border: solid thin $brand-green;
+        border-radius: .5rem;
+    }
+}
+
+.checkout-highlighted-text{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $brand-green;
+}
+
+.payment-card-container{
+    padding: 1rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    //background-color: $brand-green;
+    border-radius: .5rem;
+    cursor: pointer;
+    
+    p{
+        padding-left: 1rem;
+        margin: 0;
+        font-size: 1.5rem;
+        color: gainsboro;
+        min-width: 10rem;
+    }
+    
+    i{
+        font-size: 2rem;
+        color: black;
+    }
+}
+
+.payment-button{
+    width: 100%;
+    text-align: center;
+}

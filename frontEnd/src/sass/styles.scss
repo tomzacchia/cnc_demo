@@ -1,0 +1,7 @@
+@import './variables';
+@import './mixins';
+@import './global';
+
+// Material theme
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './app-theme';

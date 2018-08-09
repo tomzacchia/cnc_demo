@@ -1,0 +1,23 @@
+<div class="container cart-container">
+
+   <div class="row">
+       <div class="col-12 col-md-6" style="text-align: center">
+           <p style="font-size: 1.25rem; margin:0;"> My Cart </p>
+           <hr style="margin: .25rem 0;">
+       </div>
+   </div>
+
+   <div class="row">
+       <div class="col-12 col-md-6" style="padding: 0; padding-bottom: .5rem;">
+           <app-checkout-product 
+                *ngFor="let item of userItemsArray"
+                [item]= "item"> 
+            </app-checkout-product>
+       </div>
+       
+       <div class="col-12 col-md-6" style="padding: 0; height: 100%;">
+           <app-payment> </app-payment>
+       </div>
+   </div>
+
+</div>

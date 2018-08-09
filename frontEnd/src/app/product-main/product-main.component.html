@@ -1,0 +1,51 @@
+<div class="container product-main"> 
+
+    <div class="row navigation-header">
+        <p> 
+            <i class="fa fa-chevron-left"></i>
+            back to Fruits &amp; Vegatables
+        </p>
+    </div>
+
+    <div class="row main-content">
+        <div class="col-12 col-md-3">
+            <div class="filter-container" style="width: 100%;">
+                <app-sort-filter>
+                </app-sort-filter>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-9 product-card-col">
+            <!-- While content is fetched from server -->
+            <div id="product-card-col__spinner" *ngIf="spinnerDisplay">
+                <mat-spinner></mat-spinner>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row product-card-container">
+                        <!-- Added new item form -->
+                        <div class="product-card" *ngIf="true">
+                            <div class="container create-item-container"
+                                (click)="openFormModal()">
+                                <i class="fa fa-plus" id="plus-sign"></i>
+                                <p> Add new item </p>
+                            </div>
+                        </div>
+                        
+                        <app-product-card 
+                            class="product-card"
+                            *ngFor="let item of itemsCatalogue; let i = index"
+                            [item]= item
+                            [itemIndex] ="i"> 
+                        </app-product-card>
+                </div>
+            </div>            
+        </div>
+
+
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,115 @@
+@import '~src/sass/global';
+@import '~src/sass/mixins';
+@import '~src/sass/variables';
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+// to hide sidenav at breakpoints
+.hidden{
+  display: none;
+}
+.sidenav mat-toolbar{
+  color: white;
+}
+
+// hides hamburger icon at the tablet landscape breakpoint
+@media (max-width:766px){
+  .button_hidden{
+    display: inline;
+  }
+}
+@media (min-width: 767px){
+  .button_hidden{
+    display:none;
+  }
+}
+
+mat-nav-list a {
+  width: 100%;
+  text-align: left;
+  
+  i{
+   padding: 0;
+   min-width: 2rem; 
+  }
+}
+
+// fixes toolbar in place
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+// styling for the side nav
+mat-toolbar{
+  align-items: center;
+
+  button{
+    color:white;
+  }
+}
+
+// primary toolbar 
+mat-sidenav-content mat-toolbar{
+
+  button mat-icon {
+    font-size: 2rem;
+  }
+  .home-link{
+    a{
+      margin-left: 1rem; 
+      font-size: 1.5rem; 
+      font-weight: 200;
+      color: white;
+    }
+  
+    span{
+      font-size: .75rem;
+      color:white
+    }
+  }
+}
+
+// Alt links styling
+
+.alt-links{
+  @media (max-width: 766px){
+    display:none;
+    a{
+      font-size: 0.1rem;
+    }
+    i{
+      font-size: 0.1rem;
+    }
+  }
+}
+.spacer{
+  flex: 1 1 auto;
+}
+
+.nav-links{
+  padding-top: 1.5rem;
+  a{
+    color: white;
+    font-weight: 200;
+  }
+
+  i{
+    margin-right: .5rem;
+  }
+}
+
+// Active links styling
+.sidenav-links .sidenav-links__active{
+  color: $primary;
+}
+
+.nav-links .active{
+  border-bottom: solid thin white;
+}

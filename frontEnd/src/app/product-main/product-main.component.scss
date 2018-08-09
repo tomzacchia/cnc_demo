@@ -1,0 +1,110 @@
+@import '~src/sass/global';
+@import '~src/sass/mixins';
+@import '~src/sass/variables';
+
+.product-main {
+    width: 100%;
+    min-height: 100vh;
+
+    position: relative;
+    @include tablet-portrait{
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    @include tablet-landscape{
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    .row{
+        @include phone{
+            padding: 0;
+        }
+    }
+}
+
+// Navigation header
+.navigation-header{
+    width: 100%;
+    padding: 0 1rem;
+    padding-top: 1rem;
+}
+
+
+
+// Filter Container
+.filter-container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: white;
+}
+
+
+// Product card related styling(s)
+.product-card-col{
+    padding: 0;
+    position: relative;
+}
+.product-card-container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.product-card{
+    padding: 0;
+    width: 50%;
+    // border: solid thin blue;
+    @include tablet-portrait{
+        width: 50%;
+    }
+    @include desktop{
+        width: 33.33%;
+    }
+    @include desktop-big{
+        width: 25%;
+    }
+    
+}
+.product-card-col #product-card-col__spinner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: 100vh;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//Create new item buttom
+.create-item-container {
+    margin-top: .5rem;
+    width: 90%;
+    height: 55%;
+    min-height: 278px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: $primary-light;
+    
+    cursor: pointer;
+
+    p{
+        font-weight: 400;
+    }
+}
+
+
+#plus-sign{
+    font-size: 2rem;
+}
+

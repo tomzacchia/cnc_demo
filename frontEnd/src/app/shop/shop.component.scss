@@ -1,0 +1,39 @@
+@import "~src/sass/variables";
+@import "~src/sass/mixins";
+@import "~src/sass/global";
+
+.shop-parent-container{
+    padding: 0 2rem;
+    width: 100%;
+    max-width: 40rem;
+
+    p{
+        margin: 0;
+    }
+}
+
+.form-container{
+    width: 75%;
+    max-width: 40rem;
+    min-width: 340px;
+    form{
+        display: flex;
+        align-items: flex-end;
+    }
+    input{
+        padding-left: .75rem;
+        width: 80%;
+        height: 2rem;
+    }
+
+    button{
+        margin: 0;
+        background-color: $brand-green;
+        border: none;
+        border-radius: 0;
+        height: 2rem;
+        i{
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+// Core variables and mixins
+@import "variables.scss";
+@import "mixins.scss";
+// Global CSS
+@import "global.scss";
+
+footer.footer {
+  padding-top: 1rem;
+  padding-bottom: 0rem;
+  background-color: $primary-light;
+}
+
+.footer a:hover{
+    color: white;    
+}

@@ -1,0 +1,120 @@
+<div class="container create-item">
+   
+   <div class="header">
+       <p> Add new item </p>
+       <i class="material-icons" (click)="activeModal.dismiss('Cross click')">close</i>
+   </div> 
+   
+   <hr id="horizontal-line">
+   
+    <div class="form-container">
+        <form #newItemForm ="ngForm" (ngSubmit)="formData(newItemForm)">
+            <mat-form-field class="create-item__name">
+                <input
+                matInput
+                name="itemName" 
+                placeholder="Item name" 
+                required 
+                ngModel>
+            </mat-form-field>
+
+
+            <div ngModelGroup="cost" class="create-item__cost">
+                <div class="cost__first-row">
+                    <mat-form-field id="cost__first-form-field">
+                        <input 
+                            class="cost__hide-spin"
+                            type="number"
+                            matInput 
+                            name="itemSpecificCost" 
+                            placeholder="Specific price" 
+                            required 
+                            ngModel>
+                        <span matPrefix> $&nbsp; </span>
+                        <span matSuffix> .00 </span>
+                    </mat-form-field>
+
+                    <!-- Selected value will be reflect in costType -->
+                    <mat-radio-group name="costType" ngModel required>
+                        <mat-radio-button 
+                            color="primary"
+                            value="perWeight">
+                            per kg
+                        </mat-radio-button>
+                        <mat-radio-button 
+                            color="primary"
+                            value="perUnit">
+                            per unit
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <mat-form-field>
+                    <input 
+                        class="cost__hide-spin"
+                        matInput
+                        type="number" 
+                        name="itemCost" 
+                        placeholder="Actual price" 
+                        required 
+                        ngModel> 
+                </mat-form-field>
+ 
+            </div>   
+                
+
+            <mat-form-field>
+                <textarea 
+                    matInput
+                    name="itemDescription" 
+                    placeholder="Item description"
+                    required 
+                    ngModel >
+                </textarea>
+            </mat-form-field>
+
+            
+            
+            <!-- <div class="container-fluid">
+                <div class="row image-container-row" ngModelGroup="images">
+                    <div class="col-4 image-parent-container">
+                       <div class="image-container">
+                            <label for="file-upload-1"> Add image </label>
+                            <input type="file" name="photo1" id="file-upload-1" class="file-uploaded" ngModel>
+                       </div>
+                    </div>
+                    <div class="col-4 image-parent-container" style="justify-content: center">
+                       <div class="image-container">
+                            <label for="file-upload-2"> Add image </label>
+                            <input type="file" name="photo2" id="file-upload-2" class="file-uploaded" ngModel>
+                       </div>
+                    </div>
+                    <div class="col-4 image-parent-container" style="justify-content: flex-end">
+                       <div class="image-container">
+                            <label for="file-upload-3"> Add image </label>
+                            <input type="file" name="photo3" id="file-upload-3" class="file-uploaded" ngModel>
+                       </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            
+            <div class="create-item__submit-btn">
+                <button 
+                    type="submit" 
+                    class="btn btn-success" 
+                    [disabled]="!newItemForm.valid"> Add Item 
+                </button>
+            </div>
+            <!-- 
+                (click)="activeModal.close('Cross click')"
+                [disabled]="!newItemForm.valid"
+                ^ above method closes modal but this produces
+                an error, omitted temporarily...
+             -->
+            
+        </form>
+    </div>
+    
+    
+</div>

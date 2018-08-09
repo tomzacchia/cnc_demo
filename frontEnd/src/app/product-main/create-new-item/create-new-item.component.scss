@@ -1,0 +1,139 @@
+@import '~src/sass/global';
+@import '~src/sass/mixins';
+@import '~src/sass/variables';
+
+// global
+mat-form-field{
+    width: 100%;
+}
+
+.create-item{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    border-radius: 0rem;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    i{
+        cursor: pointer;
+        color: $primary;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    
+    p{
+        font-weight: 500;
+    }
+
+}
+
+#horizontal-line{
+    margin: 0;
+    margin-bottom: 1rem;
+    border-color: $primary-light;
+}
+
+.form-container{
+    input{
+        padding-left: .5rem;
+        width: 100%;
+    }
+    
+    textarea{
+        padding-left: .5rem; 
+        margin-top: 1rem;
+        width: 100%;
+        height: 10rem;
+        resize: none;
+    }
+}
+
+//Item Specific Cost
+.create-item__cost{
+    .cost__hide-spin::-webkit-outer-spin-button,
+    .cost__hide-spin::-webkit-inner-spin-button {
+        display: none;
+    }
+}
+.cost__first-row{
+    display: flex;
+    align-items: baseline;
+    #cost__first-form-field{
+        width: 50%;
+    }    
+    .radio-inline{
+        text-align: right;
+    }
+
+    mat-radio-group{
+        padding-left: 2rem;
+        width: 50%;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+}
+
+
+//Images
+.image-container-row{
+    margin-top: 1rem;
+}
+.image-parent-container{
+    width: 100%;
+    height: 7rem;
+    
+    padding: 0;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    p{
+        height: 2rem;
+        cursor: pointer;
+    }
+    
+    label{
+        cursor: pointer;
+    }
+    
+    .file-uploaded{
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+    }
+    
+}
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 95%;
+    height: 100%;
+    border: solid thin gainsboro;
+    border-radius: .5rem;
+    
+    background-color: $light-bg;
+    
+}
+
+
+// Submit 
+.create-item__submit-btn{
+    display: flex;
+    justify-content: end;
+    .btn{
+        margin-top: 1rem;
+        color: white;
+        font-weight: 100;
+        background-color: $primary;
+        border: none;
+        border-radius: 0;
+    } 
+}
