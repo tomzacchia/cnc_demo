@@ -2,10 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 // Routing
 import { AppRoutingModule } from './app-routing.module';
-
 // Services
 import { accountService  } from './services/account.service';
 import { ItemsCatalogueService } from './services/items-catalogue.service';
@@ -21,23 +19,27 @@ import { FilterSelectedDirective } from './product-main/sort-filter/filter-selec
 import { AnimateDirectiveDirective } from './product-main/sort-filter/animate-directive.directive';
 // Components
 import { AppComponent } from './app.component';
-import { ProductInfoDisplayComponent } from './product-main/product-info-display/product-info-display.component';
-
 // Animations
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // Angular Materials
 import { LayoutModule } from '@angular/cdk/layout';
-import { 
+import {
   ErrorStateMatcher,
   ShowOnDirtyErrorStateMatcher,
+  MatProgressSpinnerModule,
   } from '@angular/material';
-
 // Modules
 import { HttpModule } from '@angular/http';
 import { SharedComponentsModule } from './shared-components/shared-component.module';
 import { MainNavModule } from './main-nav/main-nav.module';
-
+// for Modal display
 import { CreateNewItemComponent } from './product-main/create-new-item/create-new-item.component';
+import { ProductInfoDisplayComponent } from './product-main/product-info-display/product-info-display.component';
+import { SpinnerService } from './services/spinner.service';
+import { MainComponent } from './admin/main/main.component';
+import { MainHttpService } from './admin/http.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -45,27 +47,34 @@ import { CreateNewItemComponent } from './product-main/create-new-item/create-ne
     highlightDirective,
     AnimateDirectiveDirective,
     FilterSelectedDirective,
+    MainComponent,
+
   ],
   imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
+    HttpClientModule,
+    HttpModule,
     SharedComponentsModule,
     NgbModule.forRoot(),
     LayoutModule,
     BrowserAnimationsModule,
-    HttpModule, 
     MainNavModule,
-    AppRoutingModule
+    LoginModule,
+    AppRoutingModule,
+    MatProgressSpinnerModule
   ],
-  providers: [ 
-    accountService, 
-    ItemsCatalogueService, 
+  providers: [
+    accountService,
+    ItemsCatalogueService,
     ShopService,
     UserCartService,
     NgbActiveModal,
     ProductCardModalService,
     DataStorageService,
     ResetScrollService,
+    SpinnerService,
+    MainHttpService,
     // for Mat forms, highlighting error only when dirty
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ],

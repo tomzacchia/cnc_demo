@@ -1,0 +1,20 @@
+<div class="container-fluid main-container">
+  <div class="header">
+    <a
+      href="#"
+      class="header__link"
+      [routerLink]="['/log-in', 'signin']"
+      routerLinkActive="header__link--active">
+        <p>Sign In</p>
+    </a>
+    <p class="header__para"> or </p>
+    <a
+      class="header__link"
+      [routerLink]="['/log-in', 'signup']"
+      routerLinkActive="header__link--active">
+        <p>Sign Up</p>
+    </a>
+  </div>
+
+  <router-outlet> </router-outlet>
+</div>

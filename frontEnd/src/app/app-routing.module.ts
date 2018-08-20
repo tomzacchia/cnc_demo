@@ -1,23 +1,27 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { CartComponent } from './cart/cart.component';
-import { ShopComponent } from './shop/shop.component';
 import { HomeComponent } from './main-nav/home/home.component';
 import { NgModule } from '@angular/core';
+import { MainComponent } from './admin/main/main.component';
+import { SigninComponent } from './login/signin/signin.component';
+import { LoginMainComponent } from './login/login-main/login-main.component';
 
 const APP_ROUTES: Routes = [
-    {path: 'home', component: HomeComponent},
+    { path: 'home', component: HomeComponent },
+    { path:'log-in', loadChildren: './login/login.module#LoginModule' },
+    // { path: 'admin', component: MainComponent },
     {
         path: 'cart',
         loadChildren: './cart/cart.module#CartModule'},
     {
         path: 'view-stores',
-        loadChildren: './shop/shop.module#ShopModule'}, 
+        loadChildren: './shop/shop.module#ShopModule'},
     {
-        path: 'productPage', 
+        path: 'productPage',
         loadChildren: './product-main/product-main.module#ProductMainModule'
     },
-    {path: '', redirectTo: 'home', pathMatch: 'full'} 
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '**', redirectTo:'/home' }
 ];
 
 @NgModule({

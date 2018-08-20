@@ -5,13 +5,18 @@
 .shop-parent-container{
     padding: 0 2rem;
     width: 100%;
-    max-width: 40rem;
-
     p{
         margin: 0;
     }
 }
 
+.title{
+    padding: 2rem 0 1rem 0;
+    font-size:1.75rem;
+    text-align: center;
+    color: $primary;
+    border-bottom: solid thin $primary-light;
+}
 .form-container{
     width: 75%;
     max-width: 40rem;

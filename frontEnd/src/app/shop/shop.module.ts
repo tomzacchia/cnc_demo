@@ -5,6 +5,7 @@ import { CommonModule } from "../../../node_modules/@angular/common";
 import { FormsModule } from "../../../node_modules/@angular/forms";
 import { ShopRoutingModule } from "./shop-routing.module";
 import { SharedComponentsModule } from "../shared-components/shared-component.module";
+import { MatButtonModule } from "@angular/material";
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { SharedComponentsModule } from "../shared-components/shared-component.mo
         CommonModule,
         FormsModule,
         SharedComponentsModule,
-        ShopRoutingModule
+        ShopRoutingModule,
+        MatButtonModule
     ]
 })
 export class ShopModule {}

@@ -1,3 +1,34 @@
-<p>
-  product-intro works!
-</p>
+
+<div class="product-intro">
+
+  <div class="header">
+    <h1 id="header__title"> Hello. Welcome to StoreName </h1>
+  </div>
+
+
+  <div class="header2">
+    <hr>
+    <h1> Aisles </h1>
+    <hr>
+  </div>
+  <div class="container-fluid main-body">
+
+    <div 
+      class="category-card" 
+      *ngFor="let category of categories">
+        <div 
+          class="image-container" 
+          [style.backgroundImage]=" 'url('+ category.img + ')' "
+          (click)="onNavigate(category.linkName)"> 
+        </div>
+        <a mat-button [routerLink]=" ['/productPage', category.linkName ]">
+            <i class="material-icons">
+                arrow_forward_ios
+            </i>
+            {{ category.name }}
+        </a>
+    </div>
+
+  </div>
+
+  </div>

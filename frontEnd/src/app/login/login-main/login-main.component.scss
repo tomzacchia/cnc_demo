@@ -1,0 +1,19 @@
+@import "~src/sass/variables";
+@import "~src/sass/mixins";
+@import "~src/sass/global";
+
+.main-container{
+  min-height: 100vh;
+  background-color: $primary-light;
+}
+
+.header{
+  padding: 3rem 1rem;
+  display: flex;
+}
+.header__para{
+  padding: 0 0.5rem;
+}
+.header__link--active p{
+  border-bottom: solid 3px #1B5E20;
+}

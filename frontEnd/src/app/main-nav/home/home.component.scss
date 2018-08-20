@@ -9,7 +9,7 @@ header.masthead {
     padding: 0;
     position: relative;
     width: 100%;
-    background-color: $gray-800;
+    background-color: $primary-light;
     //background: url('../img/cover1.jpg') no-repeat center center;
     @include background-cover;
     padding-top: 8rem;
@@ -54,7 +54,7 @@ header.masthead {
   .masthead #small-text{
       font-size: 2rem;
   }
-  
+
   // Intro
   .intro {
     padding-top: 7rem;
@@ -73,7 +73,7 @@ header.masthead {
           font-weight: 400;
       }
   }
-  
+
   //Showcase
   .showcase {
     .showcase-text {

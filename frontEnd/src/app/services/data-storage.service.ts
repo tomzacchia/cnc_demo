@@ -28,6 +28,7 @@ export class DataStorageService{
                 const product: Product[] = response.json();
                 // storing items in items catalogue service
                 this.itemsCatalogueService.setItemsCatalogue(product);
+                this.itemsCatalogueService.setHttpRequestFlag(false);
             },
             (error: Response) => console.log ('Error') 
         );

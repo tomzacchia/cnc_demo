@@ -3,7 +3,7 @@
     #drawer
     class="sidenav"
     [ngClass]="{ hidden: !(isHandset$ | async)}"
-    fixedInViewport="false"
+    fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
@@ -14,20 +14,20 @@
     <!-- Content displayed when Side Nav is toggled -->
     <mat-nav-list class="sidenav-links">
       <a mat-list-item routerLink="/view-stores" routerLinkActive="sidenav-links__active">
-        <i class="material-icons"> map </i> View Stores 
+        <i class="material-icons"> map </i> View Stores
       </a>
       <a mat-list-item routerLink="/productPage" routerLinkActive="sidenav-links__active">
-        <i class="material-icons"> store </i> Shop 
+        <i class="material-icons"> store </i> Shop
       </a>
       <a mat-list-item routerLink="/cart" routerLinkActive="sidenav-links__active">
-        <i class="material-icons"> shopping_cart </i> Cart 
+        <i class="material-icons"> shopping_cart </i> Cart
       </a>
-      <a mat-list-item>
-          <i class="material-icons"> person_outline </i> Log In 
+      <a mat-list-item routerLink="/log-in/signin" routerLinkActive="active">
+          <i class="material-icons"> person_outline </i> Log In
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  
+
   <!-- Area that displays our content / overlay for toggling side nav display -->
   <mat-sidenav-content>
 
@@ -45,34 +45,40 @@
       </button>
       <div class="home-link">
           <a routerLink="/home">
-            Clik<span> &amp; </span>Collect 
+            Clik<span> &amp; </span>Collect
           </a>
       </div>
 
       <span class="spacer"> </span>
-      
+
       <div class="alt-links">
           <ul class="nav-links navbar">
-            <li> 
+            <li>
                 <a mat-button routerLink="/view-stores" routerLinkActive="active">
-                  <i class="material-icons"> map </i> View Stores 
+                  <i class="material-icons"> map </i> View Stores
                 </a>
             </li>
             <li>
                 <a mat-button routerLink="/productPage" routerLinkActive="active">
-                  <i class="material-icons"> store </i> Shop 
+                  <i class="material-icons"> store </i> Shop
                 </a>
             </li>
             <li>
                 <a mat-button routerLink="/cart" routerLinkActive="active">
-                  <i class="material-icons"> shopping_cart </i> Cart 
+                  <i class="material-icons"> shopping_cart </i> Cart
                 </a>
             </li>
             <li>
-                <a mat-button>
-                    <i class="material-icons"> person_outline </i> Log In 
+                <a mat-button routerLink="/log-in/signin" routerLinkActive="active">
+                    <i class="material-icons"> person_outline </i> Log In
                 </a>
             </li>
+            <li *ngIf="false">
+              <a mat-button routerLink="/admin" routerLinkActive="active">
+                <i class="material-icons"> warning </i> Admin
+              </a>
+            </li>
+
           </ul>
       </div>
 

@@ -1,8 +1,8 @@
 <div class="containe-fluid shop-parent-container" id="shopContainer">
-  <p style="font-size:1.75rem; margin-bottom: 1rem;"> Store Locator </p>
-  <p> Search by Postal Code, City and/or Province</p>
+  <p  class="title"> Our Partners </p>
+  <p *ngIf="false"> Search by Postal Code, City and/or Province</p>
 
-  <div class="form-container">
+  <div class="form-container" *ngIf="false">
     <form #searchForm="ngForm" (ngSubmit)="onSearchSubmit(searchForm.value)">
         <input type="text" id="search" name="search" placeholder="e.g. Montreal, Quebec" required ngModel>
 
@@ -12,7 +12,8 @@
     </form>
   </div>
 
-  <hr>
+  <!-- spacer  -->
+  <span style="padding: 1rem"></span>
 
   <app-store-card
     *ngFor="let shopsArray of shopsArray"

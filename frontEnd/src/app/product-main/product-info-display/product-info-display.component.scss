@@ -5,9 +5,19 @@
     color: $brand-green;
 }
 
+// image
+.image{
+    display: flex;
+    justify-content: center;
+}
 .product-info-img{
-    max-width: 100%;
+    max-width: 15rem;
     height: auto;
+    @include tablet-landscape{
+        max-width: 100%;
+        height: auto; 
+    }
+    
 }
 
 .product-title{

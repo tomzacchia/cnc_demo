@@ -1,23 +1,69 @@
 <div class="container cart-container">
 
    <div class="row">
-       <div class="col-12 col-md-6" style="text-align: center">
-           <p style="font-size: 1.25rem; margin:0;"> My Cart </p>
-           <hr style="margin: .25rem 0;">
+       <div class="col-12 col-md-6 title">
+           <p class="title__header"> My Cart </p>
+           <hr>
        </div>
    </div>
 
    <div class="row">
        <div class="col-12 col-md-6" style="padding: 0; padding-bottom: .5rem;">
-           <app-checkout-product 
+            <div class="cart-empty" *ngIf="userItemsArray.length === 0">
+                <button mat-raised-button color="primary" routerLink="/view-stores">
+                    <p> Your cart is empty. View stores </p>
+                    <i class="material-icons">arrow_forward</i>
+                </button>
+            </div>
+
+           <app-checkout-product
                 *ngFor="let item of userItemsArray"
-                [item]= "item"> 
+                [item]= "item">
             </app-checkout-product>
        </div>
-       
-       <div class="col-12 col-md-6" style="padding: 0; height: 100%;">
-           <app-payment> </app-payment>
-       </div>
+
+       <!-- Payments -->
+       <div class="payment">
+            <div class="row">
+                <p class="title">  Check Out </p>
+            </div>
+            <div class="row">
+                <div class="col-6" class="total1 total">
+                    <ul class="total1__list">
+                        <li> Subtotal $ </li>
+                        <li> Taxes $    </li>
+                        <li >
+                            <span class="total__text-highlight"> Order Total $</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6" class="total2 total">
+                    <ul class="total2__list">
+                        <li> Subtotal </li>
+                        <li> Taxes </li>
+                         <li >
+                            <span class="total__text-highlight"> Total </span>
+                        </li>
+                        <!-- <li> {{userCost.subtotal}} </li>
+                        <li> {{userCost.taxes}} </li>
+                         <li >
+                            <span class="total__text-highlight">{{userCost.total}}</span>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+             <div class="row">
+                 <div class="col-12" class="button">
+                     <button
+                        mat-raised-button color="primary"
+                        [disabled]="(userItemsArray.length === 0)"
+                        (click)="navigateTo()">
+                        Pay Now
+                     </button>
+                 </div>
+             </div>
+        </div>
+
    </div>
 
 </div>

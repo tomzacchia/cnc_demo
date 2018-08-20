@@ -29,6 +29,9 @@
     justify-content: flex-end;
     align-items: center;
 }
+.image-container:hover{
+    cursor: pointer;
+}
 .image-sizing{
     padding: 0;
     height: 55%;

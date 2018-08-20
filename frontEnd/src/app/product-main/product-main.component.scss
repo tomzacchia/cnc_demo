@@ -68,19 +68,6 @@
     }
     
 }
-.product-card-col #product-card-col__spinner{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: inherit;
-    height: 100vh;
-    z-index: 10;
-    background-color: rgba(0,0,0,0.5);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 //Create new item buttom
 .create-item-container {

@@ -12,8 +12,15 @@ export class ItemsCatalogueService{
     quantityChangeEvent = new EventEmitter <Product>();
     // Flag for add-to-cart display
     displayFlagEvent = new EventEmitter < {flag: boolean, id: string} > ();
-
     private itemsCatalogue: Product[] = [];
+    // flag to avoid reaching out to server redundantly
+    httpRequestFlag: boolean = true;
+    setHttpRequestFlag(bool: boolean){
+        this.httpRequestFlag = bool;
+    }
+    getHttpRequestFlag(){
+        return this.httpRequestFlag;
+    }
 
     constructor( private userCartService: UserCartService ){}
 
@@ -21,6 +28,7 @@ export class ItemsCatalogueService{
     getItems(){
         return this.itemsCatalogue;
     }
+
 
     // populate itemsCatalogue based on database response
     setItemsCatalogue( itemsCatalogue: Product[]){
@@ -65,20 +73,20 @@ export class ItemsCatalogueService{
                 this.displayFlagEvent.emit( { flag: false, id: item.id  } );
             } else {
                 item.quantity--;
-            }   
+            }
         } else {
             item.quantity++;
         }
     }
 
-    // changes item.quantity to 0 and removes from UserCart 
+    // changes item.quantity to 0 and removes from UserCart
     removeItem(id: string){
         let item = this.itemsCatalogue.find( item => item.id == id );
         item.quantity = 0;
         this.userCartService.removeItem(id);
         this.displayFlagEvent.emit( { flag: false, id: item.id  } );
     }
-    
+
 }
 
     // = [
