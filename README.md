@@ -1,6 +1,6 @@
 # cnc_demo
 
-A demo of an E-commerce webApp for purchasing groceries.
+A demo of an E-commerce webApp for purchasing groceries. [View webApp](https://tomzacchia.github.io/cnc_demo/)
 
 ## Why did I make this?
 
