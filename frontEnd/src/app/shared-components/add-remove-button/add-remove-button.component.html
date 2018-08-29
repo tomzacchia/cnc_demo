@@ -1,18 +1,25 @@
-<div class="change-quantity">
-   <button 
-        class="btn btn-success" 
-        (click)=changeQuantity($event)
-        [disabled]="item.quantity === 0">
-            - 
-    </button>
+<div class="add-container" *ngIf="!addButtonDisplay">
+  <button class="btn btn-success addButton"
+  (click)=itemAdded()>
+    Add to cart
+  </button>
+</div>
+
+<div class="change-quantity" *ngIf="addButtonDisplay">
+   <button
+    class="btn btn-success"
+    (click)="onDecrement()"
+   >
+    -
+   </button>
 
    <p> {{item.quantity}} </p>
 
-   <button 
-        class="btn btn-success" 
-        (click)=changeQuantity($event)
-        [disabled]="item.quantity === 0"> 
-            + 
-    </button>
+   <button
+    class="btn btn-success"
+    (click)="onIncrement()"
+   >
+    +
+   </button>
 </div>
 

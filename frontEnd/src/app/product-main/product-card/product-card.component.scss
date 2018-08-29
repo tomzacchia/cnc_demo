@@ -67,19 +67,9 @@
         margin-top: .5rem;
         margin-bottom: .25rem;
     }
-
-    button{
-        width: 10rem;
-        height: 36px;
-        border: none;
-        border-radius: 0;
-        background-color: $primary;
-        font-weight: 300 !important;
-    }
-
     .product-card-button{
-        display: flex; 
-        justify-content: center; 
+        display: flex;
+        justify-content: center;
         height: 2rem;
     }
 }

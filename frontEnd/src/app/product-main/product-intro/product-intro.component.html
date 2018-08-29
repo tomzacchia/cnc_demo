@@ -13,15 +13,15 @@
   </div>
   <div class="container-fluid main-body">
 
-    <div 
-      class="category-card" 
+    <div
+      class="category-card"
       *ngFor="let category of categories">
-        <div 
-          class="image-container" 
+        <div
+          class="image-container"
           [style.backgroundImage]=" 'url('+ category.img + ')' "
-          (click)="onNavigate(category.linkName)"> 
+          (click)="onNavigate(category.categorySelected)">
         </div>
-        <a mat-button [routerLink]=" ['/productPage', category.linkName ]">
+        <a mat-button [routerLink]=" ['/productPage', category.categorySelected ]">
             <i class="material-icons">
                 arrow_forward_ios
             </i>

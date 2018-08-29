@@ -1,36 +1,45 @@
 import { Injectable } from "@angular/core";
 import { ItemsCatalogueService } from "./items-catalogue.service";
-
-import { Http, Response } from '@angular/http';
-import { Product } from "../model/product.model";
+import { MainProduct } from "../model/product.model";
+import { HttpClient } from "@angular/common/http";
+import { Store } from "@ngrx/store";
+import * as fromAppState from '../appStore/appState.reducers';
 
 @Injectable()
 
 export class DataStorageService{
 
-    constructor( 
-        private itemsCatalogueService: ItemsCatalogueService, 
-        private http: Http
+    constructor(
+        private itemsCatalogueService: ItemsCatalogueService,
+        private http: HttpClient,
+        private store: Store< fromAppState.AppState >
     ){ };
 
-    overrideData(){
-        return this.http.put(
-            'https://click-collect-practice.firebaseio.com/practice-data.json',
-            this.itemsCatalogueService.getItems()
-        );
-    }
+    // overrideData(){
+    //     return this.http.put(
+    //         'https://click-collect-practice.firebaseio.com/practice-data.json',
+    //         this.itemsCatalogueService.getItems()
+    //     );
+    // }
 
-    getItemsCatalogue(){
-        this.http.get(
-            'https://click-collect-practice.firebaseio.com/practice-data.json'
-        ).subscribe(
-            (response: Response) =>{
-                const product: Product[] = response.json();
-                // storing items in items catalogue service
-                this.itemsCatalogueService.setItemsCatalogue(product);
-                this.itemsCatalogueService.setHttpRequestFlag(false);
-            },
-            (error: Response) => console.log ('Error') 
-        );
+    // retrieve data based on queryParams passed and sets the itemsCatalaogue array
+    getItemsCatalogue(categorySelected: string){
+      this.http.get< MainProduct[] >(
+        `https://click-collect-practice.firebaseio.com/itemsCatalogue/${categorySelected}.json`
+      )
+        .subscribe(
+          (products) => {
+            // verify if products is exists
+            if(!products){
+              return [];
+            }
+            // console.log(products);
+            this.itemsCatalogueService.setItemsCatalogue(products);
+          },
+          (error) => {
+            console.log('request was unsuccessful');
+            console.log(error);
+          }
+        )
     }
 }

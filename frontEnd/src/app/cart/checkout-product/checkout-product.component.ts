@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../model/product.model';
+import { MainProduct } from '../../model/product.model';
 
-//Services
-import { UserCartService } from '../../services/user-cart.service';
-import { ItemsCatalogueService } from '../../services/items-catalogue.service';
+import { Store } from '@ngrx/store';
+import * as fromAppStore from '../../appStore/appState.reducers';
+import * as cartActions from '../store/cart.actions';
 
 @Component({
   selector: 'app-checkout-product',
@@ -12,25 +12,13 @@ import { ItemsCatalogueService } from '../../services/items-catalogue.service';
 })
 export class CheckoutProductComponent implements OnInit {
 
-   @Input() item: Product;
-   addButtonDisplay = true ;
+   @Input() item: MainProduct;
 
-  constructor( private userCartService: UserCartService, private itemsCatalogueService: ItemsCatalogueService) { }
+  constructor( private store: Store< fromAppStore.AppState > ) { }
 
-  ngOnInit() {
-    if ( this.item.quantity === 0 ){
-      this.addButtonDisplay = false;
-    }
-    this.itemsCatalogueService.displayFlagEvent.subscribe(
-      ({ flag, id}) =>{
-        if( id === this.item.id ){
-          this.addButtonDisplay = flag;
-        }
-      }
-    )
-  }
+  ngOnInit() { }
 
   removeItem(){
-    this.itemsCatalogueService.removeItem(this.item.id);
+    this.store.dispatch( new cartActions.DeleteItem(this.item.id));
   }
 }

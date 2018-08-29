@@ -2,37 +2,31 @@
     <div class="product-container">
 
         <div class="image-container" (click)="openModal()">
-            <img 
-                class="img-responsive image-sizing" 
-                src="{{item.itemImg}}" 
+            <img
+                class="img-responsive image-sizing"
+                src="{{item.itemImg}}"
                 style="cursor:pointer">
         </div>
-        
+
         <span id="vertical-spacer"></span>
 
         <div class="product-card-info">
             <div>
                 <p> {{item.itemName}} </p>
-                <p id="product-card-specific-cost"> {{item.specificCost}}$ /lbs </p>
+                <p id="product-card-specific-cost"> {{item.cost.specificCost}}$ /lbs </p>
             </div>
 
 
             <div>
-                <p id="product-card-cost"> {{item.itemCost}}</p>
+                <p id="product-card-cost"> {{item.cost.itemCost}}</p>
                 <div class="product-card-button">
-                    <button class="btn btn-success"
-                            *ngIf="!addButtonDisplay"
-                            (click)=itemAdded()> 
-                        Add to cart
-                    </button>  
-    
-                    <div *ngIf="addButtonDisplay">
-                        <app-add-remove-button [item] ="item">
+                    <div>
+                        <app-add-remove-button [itemId] ="item.id">
                         </app-add-remove-button>
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
 
     </div>
 </div>

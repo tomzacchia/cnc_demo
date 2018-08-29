@@ -1,14 +1,15 @@
 @import '~src/sass/global';
 @import '~src/sass/mixins';
+@import '~src/sass/variables';
 
 //Change Quantity
 .change-quantity{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+
     max-width: 6rem;
-    
+
     button{
         padding: auto 0;
         width: 3rem;
@@ -17,12 +18,12 @@
         border-radius: 0;
         background-color: $primary;
         border: none;
-        
+
         :hover{
             cursor: grab;
         }
     }
-    
+
     p{
         margin: auto 0;
         min-width: 2rem;
@@ -31,3 +32,12 @@
     }
 }
 
+// add to cart button
+.addButton{
+  width: 10rem;
+  height: 36px;
+  border: none;
+  border-radius: 0;
+  background-color: $primary;
+  font-weight: 300 !important;
+}

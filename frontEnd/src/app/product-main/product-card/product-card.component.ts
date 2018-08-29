@@ -4,7 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { accountService } from '../../services/account.service';
 import { ProductCardModalService } from './product-modal.service';
 //models
-import { Product } from '../../model/product.model';
+import { MainProduct } from '../../model/product.model';
 //Components
 import { ProductInfoDisplayComponent } from '../product-info-display/product-info-display.component';
 import { ItemsCatalogueService } from '../../services/items-catalogue.service';
@@ -16,45 +16,20 @@ import { ItemsCatalogueService } from '../../services/items-catalogue.service';
 })
 export class ProductCardComponent implements OnInit {
   user: boolean;
-  addButtonDisplay: boolean;
-  @Input() item: Product;
-  @Input() itemIndex: number;
+  @Input() item: MainProduct;
 
-  constructor( 
-    private accountService: accountService, 
-    private modalService: NgbModal, 
-    private productCardModal: ProductCardModalService, 
+  constructor(
+    private accountService: accountService,
+    private modalService: NgbModal,
+    private productCardModal: ProductCardModalService,
     private itemsCatalogueService: ItemsCatalogueService) { }
 
   ngOnInit() {
-      this.user = this.accountService.user;
-      this.addButtonDisplay = this.item.quantity != 0;
-      // Event subscription
-      this.itemsCatalogueService.quantityChangeEvent.subscribe(
-        (item: Product) =>{
-          // prevents updating all items to the changed item
-          if( item.id === this.item.id ){
-            this.item = item;
-          }
-        }
-      )
-      this.itemsCatalogueService.displayFlagEvent.subscribe(
-        ({ flag, id}) =>{
-          if( id === this.item.id ){
-            this.addButtonDisplay = flag;
-          }
-        }
-      )
+      // this.user = this.accountService.user;
   }
-    
+
   itemAdded(){
-      this.addButtonDisplay = !this.addButtonDisplay;
-      // this.userCartService.addItem(this.item);
-      this.itemsCatalogueService.itemInitialAdd(this.item.id);
-  }    
-   
-  updateButtonDisplay(event:any){
-      this.addButtonDisplay = event;
+    this.itemsCatalogueService.itemInitialAdd(this.item.id);
   }
 
   openModal(){
@@ -62,5 +37,5 @@ export class ProductCardComponent implements OnInit {
     this.productCardModal.loadProduct(this.item);
     this.modalService.open(ProductInfoDisplayComponent, { size: 'lg' });
   }
-  
+
 }

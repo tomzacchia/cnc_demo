@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCardModalService } from '../product-card/product-modal.service';
-import { Product } from '../../model/product.model';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ItemsCatalogueService } from '../../services/items-catalogue.service';
+import { MainProduct } from '../../admin/product.model';
 
 @Component({
   selector: 'app-product-info-display',
@@ -11,10 +11,10 @@ import { ItemsCatalogueService } from '../../services/items-catalogue.service';
 })
 export class ProductInfoDisplayComponent implements OnInit {
 
-  product: Product;
-  
-  constructor( 
-    private productCardModal: ProductCardModalService, 
+  product: MainProduct;
+
+  constructor(
+    private productCardModal: ProductCardModalService,
     public activeModal: NgbActiveModal,
     private itemsCatalogueService: ItemsCatalogueService
   ) { }

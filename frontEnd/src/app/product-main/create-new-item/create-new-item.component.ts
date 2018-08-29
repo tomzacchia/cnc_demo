@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Product } from '../../model/product.model';
+import { MainProduct } from '../../model/product.model';
 
 @Component({
   selector: 'app-create-new-item',
@@ -21,14 +21,14 @@ export class CreateNewItemComponent implements OnInit {
       //console.log(form.value);
       let formVal = form.value;
 
-      let newProduct = new Product(
-          'asdf2',
-          formVal.itemName,
-          formVal.cost.itemCost,
-          formVal.cost.itemSpecificCost,
-          'https://goo.gl/kgmGVk', // strawberries
-          0
-      );
+      // let newProduct = new MainProduct(
+      //     'asdf2',
+      //     formVal.itemName,
+      //     formVal.cost.itemCost,
+      //     formVal.cost.itemSpecificCost,
+      //     'https://goo.gl/kgmGVk', // strawberries
+      //     0
+      // );
       //console.log(newProduct);
 
       // save data either to local storage or server here
@@ -38,5 +38,5 @@ export class CreateNewItemComponent implements OnInit {
       this.activeModal.close();
   }
 
-    
+
 }

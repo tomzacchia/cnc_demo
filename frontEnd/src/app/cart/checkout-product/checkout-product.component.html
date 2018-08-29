@@ -1,5 +1,5 @@
-<div class="item-container d-flex justify-content-between" *ngIf="addButtonDisplay">
-   
+<div class="item-container d-flex justify-content-between">
+
     <div class="column-1">
         <div class="image-container">
             <img class="" src="{{item.itemImg}}">
@@ -11,8 +11,8 @@
             <div class="row">
                 <div class="col-12 nested-column">
                     <div style="display: flex; flex-direction: column">
-                        <p id="item-name"> 
-                            {{item.itemName}} 
+                        <p id="item-name">
+                            {{item.itemName}}
                         </p>
                         <p style="font-size: .75rem; font-weight: bold; color: gray"> 5.99/kg </p>
                     </div>
@@ -22,9 +22,9 @@
             </div>
             <div class="row">
                 <div class="col-12 nested-column">
-                    <p> {{item.itemCost}} $ </p>
-                    <app-add-remove-button 
-                        [item] = "item"
+                    <p> {{item.cost.itemCost}} $ </p>
+                    <app-add-remove-button
+                        [itemId] = "item.id"
                         style="padding-right: 1rem">
                     </app-add-remove-button>
                 </div>

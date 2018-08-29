@@ -25,7 +25,7 @@
               <p class="footer__button-text" id="footer__hours"> Store Hours </p>
             </button>
         </app-blank-modal>
-        <button mat-raised-button color="primary" class="footer__button">
+        <button mat-raised-button color="primary" class="footer__button" (click)="onNavigate()">
           <p class="footer__button-text" id="footer__enter"> Enter Store </p>
         </button>
     </div>
@@ -36,38 +36,38 @@
 <ng-template #storeHours let-d="dismiss">
     <div class="container-fluid additional-info" *ngIf="storeHours">
 
-        <div class="additional-info-header"> 
+        <div class="additional-info-header">
             <p> Store Hours </p>
             <i class="fa fa-times" (click)="d('Cross click')"></i>
         </div>
-      
+
         <ul class="additional-info-list">
-          <li> 
-            <p class="operating-date">Monday </p> 
+          <li>
+            <p class="operating-date">Monday </p>
             <p class="operating-hours"> 9:00am - 6:00pm </p>
           </li>
-          <li> 
-            <p class="operating-date">Tuesday </p> 
+          <li>
+            <p class="operating-date">Tuesday </p>
             <p class="operating-hours"> 9:00am - 6:00pm </p>
           </li>
-          <li> 
-            <p class="operating-date">Wednesday </p> 
+          <li>
+            <p class="operating-date">Wednesday </p>
             <p class="operating-hours"> 9:00am - 6:00pm </p>
           </li>
-          <li> 
-            <p class="operating-date">Thursday </p> 
+          <li>
+            <p class="operating-date">Thursday </p>
             <p class="operating-hours"> 9:00am - 6:00pm </p>
           </li>
-          <li> 
-            <p class="operating-date">Friday </p> 
+          <li>
+            <p class="operating-date">Friday </p>
             <p class="operating-hours"> 9:00am - 6:00pm </p>
           </li>
-          <li> 
-            <p class="operating-date">Saturday </p> 
+          <li>
+            <p class="operating-date">Saturday </p>
             <p class="operating-hours"> 9:00am - 6:00pm </p>
           </li>
-          <li> 
-            <p class="operating-date">Sunday </p> 
+          <li>
+            <p class="operating-date">Sunday </p>
             <p class="operating-hours"> 9:00am - 6:00pm </p>
           </li>
         </ul>

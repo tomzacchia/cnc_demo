@@ -1,7 +1,7 @@
-<div class="container product-main"> 
+<div class="container product-main">
 
     <div class="row navigation-header">
-        <a mat-button (click)="onNavigateBack()"> 
+        <a mat-button (click)="onNavigateBack()">
             <i class="fa fa-chevron-left"></i>
             back to Aisles
         </a>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="col-12 col-md-9 product-card-col">
-            
+
             <div class="container-fluid">
                 <div class="row product-card-container">
                         <!-- Added new item form -->
@@ -27,15 +27,15 @@
                                 <p> Add new item </p>
                             </div>
                         </div>
-                        
-                        <app-product-card 
+
+                        <app-product-card
                             class="product-card"
                             *ngFor="let item of itemsCatalogue; let i = index"
                             [item]= item
-                            [itemIndex] ="i"> 
+                        >
                         </app-product-card>
                 </div>
-            </div>            
+            </div>
         </div>
 
 

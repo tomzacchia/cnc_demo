@@ -4,12 +4,11 @@ import { CreateNewItemComponent } from './create-new-item/create-new-item.compon
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Model
-import { Product } from '../model/product.model';
+import { MainProduct } from '../model/product.model';
 import { DataStorageService } from '../services/data-storage.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Params, Router } from '../../../node_modules/@angular/router';
 import { SpinnerService } from '../services/spinner.service';
-
 @Component({
   selector: 'app-product-main',
   templateUrl: './product-main.component.html',
@@ -17,50 +16,37 @@ import { SpinnerService } from '../services/spinner.service';
 })
 export class ProductMainComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  itemsCatalogue: Product[]= [];
-  private itemsCatSubscription: Subscription = this.itemsCatalogueService.itemsCatSubject
+  itemsCatalogue: MainProduct[]= [];
+  private itemsCatSubscription: Subscription = this.itemsCatalogueService.itemsCatalogueSubject
     .subscribe(
-      (itemsCatalogue: Product[]) =>{
+      (itemsCatalogue: MainProduct[]) =>{
         this.itemsCatalogue = itemsCatalogue;
       }
     )
-  newItemForm = 'newItemForm';
   private categorySelected: string;
 
-  constructor( 
-      private itemsCatalogueService: ItemsCatalogueService, 
+  constructor(
+      private itemsCatalogueService: ItemsCatalogueService,
       private modalService: NgbModal,
       private dataStorageService: DataStorageService,
       private route: ActivatedRoute,
       private router: Router,
-      private spinnerService: SpinnerService
+      private spinnerService: SpinnerService,
   ) { };
 
   ngOnInit() {
     this.getQueryData();
-    if( this.itemsCatalogueService.httpRequestFlag ){
-      this.getItems();
-    } else{
-      this.itemsCatalogue = this.itemsCatalogueService.getItemsCatalogue();
-    }
+    this.getItems();
   }
 
   // get items from database and fill itemsCatalogue in its service
   getItems(){
-    this.dataStorageService.getItemsCatalogue();
+    this.dataStorageService.getItemsCatalogue(this.categorySelected);
   }
 
   // opens modal
   openFormModal() {
     this.modalService.open(CreateNewItemComponent, {size: 'lg', centered: true});
-  }
-
-  // go up one level w.r.t current route
-  onNavigateBack(){
-    this.router.navigate(
-      ['../'],
-      { relativeTo: this.route }
-    )
   }
 
   // get data from URL
@@ -69,9 +55,16 @@ export class ProductMainComponent implements OnInit, OnDestroy, AfterViewInit {
       subscribe(
         (params: Params) =>{
           this.categorySelected = params['id'];
-          console.log(this.categorySelected);
         }
       )
+  }
+
+  // go up one level w.r.t current route
+  onNavigateBack(){
+    this.router.navigate(
+      ['../'],
+      { relativeTo: this.route }
+    )
   }
 
   ngAfterViewInit(){
@@ -84,5 +77,5 @@ export class ProductMainComponent implements OnInit, OnDestroy, AfterViewInit {
     this.itemsCatSubscription.unsubscribe();
   }
 
-  
+
 }

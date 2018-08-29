@@ -8,17 +8,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { accountService  } from './services/account.service';
 import { ItemsCatalogueService } from './services/items-catalogue.service';
 import { ShopService } from './services/shop.service';
-import { UserCartService }  from './services/user-cart.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductCardModalService } from './product-main/product-card/product-modal.service';
 import { DataStorageService } from './services/data-storage.service';
 import { ResetScrollService } from './services/reset-scroll.service';
+import { SpinnerService } from './services/spinner.service';
+import { MainHttpService } from './admin/http.service';
 // Custom Directive
 import { highlightDirective } from './cart/payment/highlight.directive';
 import { FilterSelectedDirective } from './product-main/sort-filter/filter-selected.directive';
 import { AnimateDirectiveDirective } from './product-main/sort-filter/animate-directive.directive';
 // Components
 import { AppComponent } from './app.component';
+import { MainComponent } from './admin/main/main.component';
+
 // Animations
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // Angular Materials
@@ -31,15 +34,16 @@ import {
 // Modules
 import { HttpModule } from '@angular/http';
 import { SharedComponentsModule } from './shared-components/shared-component.module';
-import { MainNavModule } from './main-nav/main-nav.module';
 // for Modal display
 import { CreateNewItemComponent } from './product-main/create-new-item/create-new-item.component';
 import { ProductInfoDisplayComponent } from './product-main/product-info-display/product-info-display.component';
-import { SpinnerService } from './services/spinner.service';
-import { MainComponent } from './admin/main/main.component';
-import { MainHttpService } from './admin/http.service';
+// Eagerly loaded UI modules
+import { MainNavModule } from './main-nav/main-nav.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
+import { StoreModule } from '@ngrx/store';
+// State reducers
+import { reducers } from './appStore/appState.reducers';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,6 @@ import { LoginModule } from './login/login.module';
     AnimateDirectiveDirective,
     FilterSelectedDirective,
     MainComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -61,14 +64,15 @@ import { LoginModule } from './login/login.module';
     BrowserAnimationsModule,
     MainNavModule,
     LoginModule,
+    MatProgressSpinnerModule,
+    StoreModule.forRoot(reducers),
     AppRoutingModule,
-    MatProgressSpinnerModule
+
   ],
   providers: [
     accountService,
     ItemsCatalogueService,
     ShopService,
-    UserCartService,
     NgbActiveModal,
     ProductCardModalService,
     DataStorageService,

@@ -1,10 +1,10 @@
-import { Product } from '../../model/product.model';
+import { MainProduct } from '../../admin/product.model';
 
 export class ProductCardModalService {
 
-    product: Product;
+    product: MainProduct;
 
-    loadProduct( productReceived: Product) {
+    loadProduct( productReceived: MainProduct) {
         this.product = productReceived;
     }
 

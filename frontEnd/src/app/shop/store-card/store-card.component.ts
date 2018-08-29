@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { ShopInfoModel } from '../../model/shop.model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store-card',
@@ -8,24 +9,19 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./store-card.component.scss']
 })
 export class StoreCardComponent implements OnInit {
- 
+
   @ViewChild('storeHours') storeHours: ElementRef;
   // storeHours: boolean;
 
   @Input() shopInfo: ShopInfoModel;
 
-  constructor( private modalService: NgbModal) {
-    // this.storeHours = false;
+  constructor( private router: Router ) {
    }
 
   ngOnInit() {
   }
 
-  // storeDetailsState(){
-  //   this.storeHours = (this.storeHours === false  ? true : false) ;
-  // }  
-
-  // storeDetailModal(){
-  //   this.modalService.open(this.storeHours);
-  // }
+  onNavigate(){
+    this.router.navigate( ['/productPage'] );
+  }
 }

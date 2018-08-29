@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
   }
 
   onPost(){
-    this.mainHttpService.sendData();
+    // this.mainHttpService.sendData();
   }
 
 }

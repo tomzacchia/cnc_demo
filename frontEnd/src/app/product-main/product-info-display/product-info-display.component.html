@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-       
+
         <div class="col-12" style="text-align: right">
             <i class="fa fa-times"
                 (click)="activeModal.dismiss('Close clicl')"
@@ -10,44 +10,40 @@
 
         <div class="col-12 col-md-4 image">
             <div>
-                <img 
-                    class="product-info-img" 
+                <img
+                    class="product-info-img"
                     src="{{product.itemImg}}">
             </div>
         </div>
-        
+
         <div class="col-12 col-md-8">
             <div class="main-info">
                 <h1 class="product-title">
                    {{product.itemName}}
                 </h1>
-                <p id="price"> {{product.itemCost}}$ </p>
-                <p id="deatiled-price"> 
-                    (2.99$ per kg) 
+                <p id="price"> {{product.cost.itemCost}}$ </p>
+                <p id="deatiled-price">
+                    {{product.cost.specificCost}} $ per kg
                 </p>
             </div>
             <hr>
-            
+
             <div class="add-item">
-                <app-add-remove-button [item]="product"> </app-add-remove-button>
-                <button 
-                    class="btn btn-success" 
-                    (click)="itemAdded()"
-                    [disabled]="product.quantity >= 1"> Add to Cart </button>
+                <app-add-remove-button [itemId]="product.id"> </app-add-remove-button>
             </div>
- 
+
             <hr>
-            <p class="detailed-info"> 
+            <p class="detailed-info">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </p>
             <hr>
-            
+
             <!-- Ingredients Section -->
             <div class="ingredients-container">
-               
+
                 <div class="ingredients-title fluid-container">
-                    <div class="row"> 
-                        <div class="col-6" style="font-weight: bold; display: flex; align-items: baseline; padding: 1rem"> 
+                    <div class="row">
+                        <div class="col-6" style="font-weight: bold; display: flex; align-items: baseline; padding: 1rem">
                             <i class="fa fa-list" style="float: left"> </i>
                             <p style="align-self: center; padding-left: 1rem"> Ingredients </p>
                         </div>
@@ -55,18 +51,18 @@
                             <i class="fa fa-chevron-down" style="padding: 1rem; cursor: pointer"></i>
                         </div>
                     </div>
-                    
-                    <div class="row"> 
+
+                    <div class="row">
                         <div class="col-12">
-                            <p> Ingredients go here </p>  
-                            
+                            <p> Ingredients go here </p>
+
                         </div>
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
-        
+
     </div>
 </div>
