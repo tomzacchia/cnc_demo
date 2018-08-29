@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainHttpService } from '../http.service';
 import { SpinnerService } from '../../services/spinner.service';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +12,8 @@ export class MainComponent implements OnInit {
 
   constructor(
     private mainHttpService: MainHttpService,
-    private spinnerService: SpinnerService
+    private spinnerService: SpinnerService,
+    private localStorageService: LocalStorageService
   ) { }
 
   ngOnInit() {
@@ -23,5 +25,13 @@ export class MainComponent implements OnInit {
   onPost(){
     // this.mainHttpService.sendData();
   }
+
+  // saveData(){
+  //   this.localStorageService.saveState();
+  // }
+
+  // getData(){
+  //   this.localStorageService.getState();
+  // }
 
 }

@@ -9,7 +9,7 @@
 
    <div class="row">
        <div class="col-12 col-md-6" style="padding: 0; padding-bottom: .5rem;">
-            <div class="cart-empty" *ngIf="userItemsArray.length === 0">
+            <div class="cart-empty" *ngIf="userItems.length === 0">
                 <button mat-raised-button color="primary" routerLink="/view-stores">
                     <p> Your cart is empty. View stores </p>
                     <i class="material-icons">arrow_forward</i>
@@ -17,7 +17,7 @@
             </div>
 
            <app-checkout-product
-                *ngFor="let item of userItemsArray"
+                *ngFor="let item of userItems"
                 [item]= "item">
             </app-checkout-product>
        </div>
@@ -51,7 +51,7 @@
                  <div class="col-12" class="button">
                      <button
                         mat-raised-button color="primary"
-                        [disabled]="(userItemsArray.length === 0)"
+                        [disabled]="(userItems.length === 0)"
                         (click)="navigateTo()">
                         Pay Now
                      </button>

@@ -40,6 +40,11 @@ export function cartReducer(state = initialState, action: CartActions.CartAction
         ...state,
           cartItems: newCartItems
       }
+    case CartActions.INITIALIZE_ITEMS:
+      return {
+        ...state,
+          cartItems: [...action.userItems]
+      }
     default:
       return state;
   }

@@ -1,10 +1,13 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SpinnerService } from '../services/spinner.service';
 import { Router } from '@angular/router';
 import { MainProduct } from '../model/product.model';
 import { Store } from '@ngrx/store';
 import * as fromAppStore from '../appStore/appState.reducers';
+import * as CartActions from './store/cart.actions';
+import { LocalStorageService } from '../services/local-storage.service';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -13,7 +16,7 @@ import * as fromAppStore from '../appStore/appState.reducers';
 export class CartComponent implements OnInit, AfterViewInit{
 
   resetScrollSubscription: Subscription;
-  userItemsArray: MainProduct[] = [];
+  userItems: MainProduct[];
   storeSubscription: Subscription;
   userCost: cost = new cost(0,0,0);
 
@@ -21,17 +24,25 @@ export class CartComponent implements OnInit, AfterViewInit{
     private spinnerService: SpinnerService,
     private router: Router,
     private store: Store< fromAppStore.AppState >,
+    private localStorageService: LocalStorageService
   ) {}
 
   ngOnInit() {
     this.storeSubscription = this.store.select('cart').subscribe(
         (cartState) => {
           let userSelectedItems = cartState.cartItems;
-          this.userItemsArray = userSelectedItems;
-          this.userCost.calculateSubTotal(this.userItemsArray);
+          if( userSelectedItems.length === 0 ){
+            this.userItems = this.localStorageService.getStateFromLocal();
+            if ( this.userItems.length !== 0 ){
+              this.store.dispatch(new CartActions.InitializeItems(this.userItems));
+            }
+          } else{
+            this.userItems = userSelectedItems;
+            this.userCost.calculateSubTotal(this.userItems);
+          }
         },
         error => console.log(error)
-      )
+    )
   }
 
   navigateTo(){
@@ -45,8 +56,15 @@ export class CartComponent implements OnInit, AfterViewInit{
     })
   }
 
+  // saves user items when refresh is detected
+  @HostListener('window:beforeunload') saveState(){
+    if (this.userItems !== []){
+      this.localStorageService.saveStateLocally(this.userItems);
+    }
+  }
 }
 
+// class for calculating costs
 class cost {
   constructor(
     public subTotal: number,

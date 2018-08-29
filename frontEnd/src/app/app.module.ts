@@ -11,7 +11,6 @@ import { ShopService } from './services/shop.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductCardModalService } from './product-main/product-card/product-modal.service';
 import { DataStorageService } from './services/data-storage.service';
-import { ResetScrollService } from './services/reset-scroll.service';
 import { SpinnerService } from './services/spinner.service';
 import { MainHttpService } from './admin/http.service';
 // Custom Directive
@@ -21,7 +20,6 @@ import { AnimateDirectiveDirective } from './product-main/sort-filter/animate-di
 // Components
 import { AppComponent } from './app.component';
 import { MainComponent } from './admin/main/main.component';
-
 // Animations
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // Angular Materials
@@ -44,6 +42,9 @@ import { LoginModule } from './login/login.module';
 import { StoreModule } from '@ngrx/store';
 // State reducers
 import { reducers } from './appStore/appState.reducers';
+import {StorageServiceModule} from 'ngx-webstorage-service'
+import { LocalStorageService } from './services/local-storage.service';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -64,10 +65,11 @@ import { reducers } from './appStore/appState.reducers';
     BrowserAnimationsModule,
     MainNavModule,
     LoginModule,
+    CartModule,
     MatProgressSpinnerModule,
+    StorageServiceModule,
     StoreModule.forRoot(reducers),
     AppRoutingModule,
-
   ],
   providers: [
     accountService,
@@ -76,9 +78,9 @@ import { reducers } from './appStore/appState.reducers';
     NgbActiveModal,
     ProductCardModalService,
     DataStorageService,
-    ResetScrollService,
     SpinnerService,
     MainHttpService,
+    LocalStorageService,
     // for Mat forms, highlighting error only when dirty
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ],
