@@ -2,10 +2,6 @@
 
 A demo of an E-commerce webApp for purchasing groceries. [View webApp](https://tomzacchia.github.io/cnc_demo/)
 
-## Why did I make this?
-
-To practice Angular and understand its nuances better. The FrontEnd code is copied from a private repository, so the commits in this repo are not incredibly detailed; they only reflect major version changes to the webApp. 
-
 ## Built With
 
 * [Angular 6](https://angular.io/) - Front End Framework 
